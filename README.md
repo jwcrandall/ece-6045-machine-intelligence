@@ -1,2 +1,2 @@
-# ECE_6045_Fundamentals_of_Optics
-ECE_6045_Fundamentals_of_Optics
+# ece-6045-machine-intelligence
+ece-6045-machine-intelligence
