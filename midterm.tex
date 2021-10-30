@@ -1,6 +1,55 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
+\section{Study}
+
+\begin{itemize}
+\item cloud versus edge
+\item gradient descent
+\itme perceptron
+\item hashing
+\item signal processing
+\item matrix computation
+\item operation benchmarks, operation per system per joule
+\item generative adversarial neural networks
+\end{itemize}
+
+\subsection{Introduction}
+\subsection{Supervised ML}
+Probabilistic Learning Model
+$$\epsilon \triangleq \mathbb{E}_{(x, y) \sim \mathcal{D}}[\ell(y, f(x))]=\sum_{(x, y)} \mathcal{D}(x, y) \ell(y, f(x))$$
+Our training error is simply our average error over the training data. 
+$$\hat{\epsilon} \triangleq \frac{1}{N} \sum_{n=1}^{N} \ell\left(y_{n}, f\left(\boldsymbol{x}_{n}\right)\right)$$
+
+\subsection{Perceptron}
+Input vector $X_i$, weights $w_i$, bias $b$, activation function $f$
+$$f\left(\sum_{i} w_{i} x_{i}+b\right)$$
+
+\begin{algorithm}
+\caption{PerceptronTrain(\textbf{D}, MaxIter)}
+\begin{algorithmic}[1]
+\State $w_d \leftarrow 0, \text{ for all } d = 1 ... D$ 
+\State $b \leftarrow 0$
+\For{$iter = 1 ... MaxIter$}
+    \ForAll{$(x, y) \in \mathbf{D}$}
+        \State $a \leftarrow \sum_{d=1}^{D} w_d x_d +b$
+        \If{$ya \leq 0$}{
+            \State $w_d \leftarrow w_d + yx_d, \text{ for all } d = 1...D$
+            \State $b \leftarrow b + y$
+        \EndIf
+    \EndFor
+\EndFor
+\State \Return $w_0, w_1, ..., w_D, b$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Neural Networks}
+\subsection{Introduction Theory}
+\subsection{Hardware for AI}
+\subsection{Optics for AI}
+
+\section{Questions}
+
 \begin{enumerate}
 
 % -----------------------------------------------------
