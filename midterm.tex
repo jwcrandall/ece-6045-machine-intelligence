@@ -43,7 +43,40 @@ $$f\left(\sum_{i} w_{i} x_{i}+b\right)$$
 \end{algorithmic}
 \end{algorithm}
 
+Decision boundary where activation changes from -1 to +1
+$$\mathcal{B}=\left\{x: \sum_{d} w_{d} x_{d}=0\right\}$$
+
+\subsubsection{Spiking Neural Networks}
+Signals are idieally represented by series of delta functions where the inputs and outputs, for spike times $\tau_j$ take the form 
+$$x(t)=\sum_{j=1}^{n} \delta\left(t-\tau_{j}\right)$$
+
 \subsection{Neural Networks}
+\subsubsection{Gradient Decent}
+Define differentiable function $F(x)$ with gradient $\nabla F\left(\mathbf{x}_{n}\right)$ and step on gradient $-\gamma_{n} \nabla F\left(\mathbf{x}_{n}\right)$ where
+
+$$\gamma_{n}=\frac{\left|\left(\mathbf{x}_{n}-\mathbf{x}_{n-1}\right)^{T}\left[\nabla F\left(\mathbf{x}_{n}\right)-\nabla F\left(\mathbf{x}_{n-1}\right)\right]\right|}{\left\|\nabla F\left(\mathbf{x}_{n}\right)-\nabla F\left(\mathbf{x}_{n-1}\right)\right\|^{2}}$$
+
+and where $\gamma \in \mathbb{R}_{+}$ and $n \in N>0$ which equals the number of steps. With an initial guess $x_0$, and a sequence of steps $\mathbf{x}_{0}, \mathbf{x}_{1}, \mathbf{x}_{2}, \ldots$, such that 
+
+$$\mathbf{x}_{n+1}=\mathbf{x}_{n}-\gamma_{n} \nabla F\left(\mathbf{x}_{n}\right), n \geq 0$$
+
+resulting in a monotonic sequence $F\left(\mathbf{x}_{0}\right) \geq F\left(\mathbf{x}_{1}\right) \geq F\left(\mathbf{x}_{2}\right) \geq \cdots$ that converges to a desired local minimum.
+
+\subsubsection{Back Propagation}
+
+\begin{aligned}
+&\delta^{L}=\nabla_{a} C \odot \sigma^{\prime}\left(z^{L}\right) \\
+&\delta^{l}=\left(\left(w^{l+1}\right)^{T} \delta^{l+1}\right) \odot \sigma^{\prime}\left(z^{l}\right) \\
+&\frac{\partial C}{\partial b_{j}^{l}}=\delta_{j}^{l} \\
+&\frac{\partial C}{\partial w_{j k}^{l}}=a_{k}^{l-1} \delta_{j}^{l}
+\end{aligned}
+
+\subsubsection{Nonlinear Activation Function (NLAF)}
+
+Logistic function where $x_0$, the $x$ value of the sigmoid's midpoint, $L$, the curve's maximum value, $k$, the logistic growth rate or steepness of the curve resulting in 
+
+$$f(x)=\frac{L}{1+e^{-k\left(x-x_{0}\right)}}$$
+
 \subsection{Introduction Theory}
 \subsection{Hardware for AI}
 \subsection{Optics for AI}
