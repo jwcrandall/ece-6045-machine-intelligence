@@ -1,0 +1,27 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\begin{enumerate}
+
+\item[1.] Given the following training data set in the format: \textit{input $\rightarrow$ label}
+    \begin{itemize}[label={}]
+        \item $[23,23,23] \rightarrow 358$
+        \item $[15,15,15] \rightarrow 230$
+        \item $[10,13,15] \rightarrow 211$
+        \item $[7,17,27] \rightarrow 302$
+    \end{itemize}
+Consider forward propagation. To get started initialize the parameters: weighting vector: $[1,2,3]$; bias $b=20$; use $y=\vec{w}^{T}\vec{x}+b$ to calculate the output/prediction.
+    \begin{enumerate}
+        \item \textbf{Q} Calculate the mean square error (MSE) (i.e. cost function) for the training set. Use backpropagation to reduce the MSE by updating the weighting matrix and bias. \textbf{A}
+        
+        \item \textbf{Q} Calculate the partial derivatives for the first row of the data. Write down the result and steps. Calculate the cost (squared error) for the first row of the data. $\frac{\partial \text { cost }}{\partial \text { output }}, \frac{\partial \text { cost }}{\partial \text{weight}}, \frac{\partial \text { cost }}{\partial \text { bias }}$ The partial derivative of $\frac{\partial \text { cost }}{\partial \text { weight }}$ has the form $[a_1,a_2,a_3]$. \textbf{A}
+       
+        \item \textbf{Q} Update the weights with $\frac{\partial \text{cost}}{\partial \text { weight }}, \frac{\partial \text { cost }}{\partial \text { bias }}$ from the fist row of the data using the learning rates $LR_1 = 0.0001$ and $LR_2 = 0.001$. Then recalculate the MSE for both rates. What happens to the learning process for using each rate? Thus, which learning rate is better suited for training, why? \textbf{A}
+        
+        \item \textbf{Q} In order to boost the inference accuracy we add a sigmoid nonlinear activation function after the weighting matrix, $\sigma\left(\boldsymbol{w}^{\top} \boldsymbol{x}+\mathrm{b}\right)$, and calculate the $\frac{\partial cost}{\partial weight}$ for the first row of the data. Hint: use the chain rule for derivatives $\sigma(x)=\frac{1}{1+e^{-x}}$, $\frac{d \sigma(x)}{d(x)}=\sigma(x) \cdot(1-\sigma(x))$. \textbf{A}
+        
+        \item \textbf{Q} To move towards convolutional neural networks we apply a one-dimensional convolutional kernel, given by k=[1,2], weight=[2,3],b=4. $Output = w^T Conv(input,k)+b$. Calculate the output after filtering the data with the kernel (k) after this single conv layer using the last row from the data, and then calculate the $\frac{\partial \text{cost}}{\partial \text{kernel}}$, while ignoring the activation function. \textbf{A}
+        
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
